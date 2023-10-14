@@ -1,0 +1,114 @@
+.App {
+    text-align: center;
+  }
+  
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .card {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .hover-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .hover-button:hover {
+    background-color: #2185d0;
+  }
+  
+  .popup {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :root {
+    --primary-color: #6D9B7C;
+    --complementary-color: #5A98B7;
+    --dark-color: #000;
+    --light-color: #F1FCF4;
+  }
+  
+  .App {
+    text-align: center;
+    background-color: var(--light-color); /* Use the light color as the background */
+  }
+  
+  .navbar {
+    background-color: var(--dark-color); /* Use the dark color for the navbar background */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  /* Update button and hover-button colors with the primary and complementary colors */
+  button {
+    background-color: var(--complementary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .hover-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Update card background color with a lighter shade of primary color */
+  .card {
+    background-color: #C4D7C4; /* Use a lighter shade of the primary color */
+    border: 1px solid var(--complementary-color); /* Border color complementary to primary */
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+  }
