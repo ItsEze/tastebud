@@ -5,7 +5,8 @@ import { MdEmail } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react';
 import { AuthContext } from "../context/AuthContext";
-import './Forms.css'
+import './css/Forms.css'
+import logo from '../assets/logo-no-background.svg'
 
 function Form({ formType, handleInputChange, handleSubmit, responseMsg }) {
   const sharedState = useContext(AuthContext);
@@ -19,8 +20,7 @@ function Form({ formType, handleInputChange, handleSubmit, responseMsg }) {
       {responseMsg && <h2>{responseMsg}</h2>}
       <div className="page">
       <div className="login">
-        <img></img>
-        <h1>TasteBud</h1>
+        <img className="logo" src={logo}></img>
         <h2>{formType}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

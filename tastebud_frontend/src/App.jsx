@@ -6,12 +6,13 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Home from './pages/Home'
 import Testing from "./components/Testing";
+import Colors from "./components/Colors";
+import NavBar from "./components/NavBar";
 
 
 export default function App() {
   const [authToken, setAuthToken] = useState(null);
   const [formData, setFormData] = useState({ email: '', password: '' });
-  const [ads, setAds] = useState([]);
 
   const inputRef = useRef(null);
 
@@ -48,12 +49,15 @@ useEffect(() => {
 
   return (
     <AuthContext.Provider value={sharedState}>
+      <NavBar />
       <Router>
         <Routes>
           <Route path='/' element={<Login handleToken={handleToken} handleInputChange={handleInputChange}/>}/>
           <Route path='/signup' element={<Signup handleInputChange={handleInputChange} formData={formData} />}/>
           <Route path='/home' element={<Home />}/>
           <Route path='/testing' element={<Testing />}/>
+          <Route path='/colors' element={<Colors />}/>
+          <Route path="/navbar" element={<NavBar />}/>
         </Routes>
       </Router> 
     </AuthContext.Provider>

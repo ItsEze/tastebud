@@ -1,0 +1,28 @@
+.colors {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.color {
+    border: .1rem solid black;
+    min-width: 14em;
+    text-align: center;
+    height: 40em;
+}
+
+#primary{
+    background-color: #6D9B7C;
+}
+#complementary{
+    background-color: #76ABAB;
+}
+#secondary {
+    background-color: #5A98b7;
+}
+#dark {
+    background-color: #222a24
+}
+#light {
+    background-color: #f1fcf4
+}
