@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w1$*j0s=oke@&pd1#vd90y_iig8cs@2)#+t9kqg2#in7mf4we$'
+load_dotenv()
+SECRET_KEY = (os.environ['DJANGO_SECRET_KEY'])
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +43,9 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders'
+    'corsheaders',
+    'recipes',
+    'recipe_api'
 ]
 
 MIDDLEWARE = [
@@ -85,9 +90,9 @@ DATABASES = {
         "NAME": "tastebuddb",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "db",  
-        # "HOST": "localhost",  
-        "PORT": 5432, # This is the port on the host machine (which will be mapped szd  to 5432 in the container)
+        # "HOST": "db",  
+        "HOST": "localhost",  
+        "PORT": 5454, # This is the port on the host machine (which will be mapped szd  to 5432 in the container)
     }
 }
 
@@ -147,3 +152,9 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
+
+# CORS_ALLOW_HEADERS = [
+#     "trn-api-key",
+#     "Content-Type",
+#     "Authorization",  # Add any other headers you need to allow here
+# ]
