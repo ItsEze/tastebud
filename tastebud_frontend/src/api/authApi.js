@@ -7,6 +7,8 @@ async function basicFetch(url, payload) {
   
   export async function signup(context) {
     const base_url = import.meta.env.VITE_BASE_URL
+    const endpoint = '/users/signup/'
+    const url = new URL(endpoint, base_url)
     console.log(context)
     const payload = {
       method: "POST",
@@ -15,12 +17,15 @@ async function basicFetch(url, payload) {
       },
       body: JSON.stringify(context)
     }
-    const body = await basicFetch(`${base_url}/users/signup/`,payload)
+    const body = await basicFetch(url, payload)
     return body
   }
   
   export async function login(context) {
     const base_url = import.meta.env.VITE_BASE_URL
+    const endpoint = '/users/get-token/'
+    const url = new URL(endpoint, base_url)
+
     console.log(context)
     const payload = {
       method: "POST",
@@ -29,7 +34,7 @@ async function basicFetch(url, payload) {
       },
       body: JSON.stringify(context)
     }
-    const body = await basicFetch(`${base_url}/users/get-token/`, payload)
+    const body = await basicFetch(url, payload)
     return body.token
   }
 
