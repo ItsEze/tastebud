@@ -6,7 +6,7 @@ async function basicFetch(url, payload) {
   
   
   export async function signup(context) {
-    const base_url = import.meta.env.VITE_BASE_URL
+    const base_url = `http://${import.meta.env.VITE_BASE_URL}`
     const endpoint = '/users/signup/'
     console.log(base_url)
     const url = new URL(endpoint, base_url)
