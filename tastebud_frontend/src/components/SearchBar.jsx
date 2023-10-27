@@ -1,50 +1,32 @@
 import { useEffect, useState } from "react"
+import './css/SearchContainer.css'
 
 
-export default function SearchBar({selectedFilters, setSelectedFilters, queryParams, setQueryParams}) {
+
+export default function SearchBar({queryParams, setQueryParams}) {
 
 
     
       const handleInputChange = (event) => {
         const text = event.target.value;
         const tempQueryParams = {...queryParams}
-        console.log('log', tempQueryParams)
         tempQueryParams['q'] = text
         setQueryParams(tempQueryParams)
-        
       };
 
 
     return (
         <>
+        <p className="searchText">Search for a recipe using a single or multiple keywords!</p>
+        <div className="searchBarContainer">
         <input 
-        type="text"
+        type="text"   
         value={queryParams['q']}
         onChange={handleInputChange}
-        placeholder="Search for a recipe..." />
+        placeholder="Search here..." />
+        </div>
         </>
     )
 }
 
 
-{/* <div className="autocomplete">
-      <input
-        type="text"
-        value={inputText}
-        onChange={handleInputChange}
-        placeholder="Type to search..."
-      />
-      {showSuggestions && (
-        inputText !== '' && (
-        <div className="suggestions">
-          {filteredSuggestions.map((suggestion, index) => (
-            <p
-              key={index}
-              onClick={() => handleSuggestionClick(suggestion)}
-            >   
-              {suggestion}
-            </p>
-          ))}
-        </div>
-      ))}
-    </div> */}

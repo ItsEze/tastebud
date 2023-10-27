@@ -6,21 +6,21 @@ import Form from '../components/Forms';
 
 export default function Login({ handleInputChange, handleToken }) {
   const sharedState = useContext(AuthContext);
-  const { formData } = sharedState;
+  const { formData } = sharedState
 
-  const [responseMsg, setResponseMsg] = useState("");
-  const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [responseMsg, setResponseMsg] = useState("")
+  const [shouldRedirect, setShouldRedirect] = useState(false)
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const context = { email: formData.email, username: formData.email, password: formData.password };
-    const token = await login(context);
+    e.preventDefault()
+    const context = { email: formData.email, username: formData.email, password: formData.password }
+    const token = await login(context)
     if (!token) {
-      setResponseMsg("Error logging in");
+      setResponseMsg("Error logging in")
     } else {
-      localStorage.setItem("authToken", token);
-      handleToken(token);
-      setShouldRedirect(true);
+      localStorage.setItem("authToken", token)
+      handleToken(token)
+      setShouldRedirect(true)
     }
   }
 

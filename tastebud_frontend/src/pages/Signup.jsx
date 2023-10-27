@@ -7,8 +7,8 @@ import { AuthContext } from "../context/AuthContext";
 
 
 export default function Signup({handleInputChange}) {
-  const sharedState = useContext(AuthContext);
-  const { formData } = sharedState;
+  const sharedState = useContext(AuthContext)
+  const { formData } = sharedState
 
   const [responseMsg, setResponseMsg] = useState("")
   const [shouldRedirect, setShouldRedirect] = useState(false)

@@ -6,6 +6,7 @@ async function basicFetch(url, payload) {
   
   
   export async function signup(context) {
+    const base_url = import.meta.env.VITE_BASE_URL
     console.log(context)
     const payload = {
       method: "POST",
@@ -14,11 +15,12 @@ async function basicFetch(url, payload) {
       },
       body: JSON.stringify(context)
     }
-    const body = await basicFetch("http://localhost:8000/users/signup/",payload)
+    const body = await basicFetch(`http://${base_url}/users/signup/`,payload)
     return body
   }
   
   export async function login(context) {
+    const base_url = import.meta.env.VITE_BASE_URL
     console.log(context)
     const payload = {
       method: "POST",
@@ -27,27 +29,32 @@ async function basicFetch(url, payload) {
       },
       body: JSON.stringify(context)
     }
-    const body = await basicFetch("http://localhost:8000/users/get-token/", payload)
+    const body = await basicFetch(`http://${base_url}/users/get-token/`, payload)
     return body.token
   }
 
-  export async function recipeSearch(queryParams) {
-
+  export async function recipeSearch(queryParams, authToken) {
+    const base_url = import.meta.env.VITE_BASE_URL
     const queryString = Object.keys(queryParams)
-    .filter(key => queryParams[key] !== '')
-    .map(key => `${key}=${queryParams[key]}`)
-    .join('&')
-
-    const url = `http://localhost:8000/api/v1/recipe_search/?${queryString}`
-
+      .map((key) => {
+        if (key === 'health' && Array.isArray(queryParams[key])) {
+          return queryParams[key].map((value) => `${key}=${value}`).join('&');
+        } else {
+          return `${key}=${queryParams[key]}`;
+        }
+      })
+      .join('&');
+  
+    const url = `http://${base_url}/api/v1/recipe_search/?${queryString}`;
+  
     const payload = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `token ${authToken}`,
       },
     }
-
-    console.log(url)
-    const body = await basicFetch(url, payload)
-    return body
+  
+    const body = await basicFetch(url, payload);
+    return body;
   }

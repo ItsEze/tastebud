@@ -23,12 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv()
-SECRET_KEY = (os.environ['DJANGO_SECRET_KEY'])
+# SECRET_KEY = (os.environ['DJANGO_SECRET_KEY'])
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-w1$*j0s=oke@&pd1#vd90y_iig8cs@2)#+t9kqg2#in7mf4we$')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  True if os.getenv("DEBUG") == "True" else False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['3.138.124.217']
 
 
 # Application definition
@@ -87,12 +88,11 @@ WSGI_APPLICATION = 'tastebud.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "tastebuddb",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        # "HOST": "db",  
-        "HOST": "localhost",  
-        "PORT": 5454, # This is the port on the host machine (which will be mapped szd  to 5432 in the container)
+        "NAME": os.getenv("DB_NAME", "tastebuddb"),
+        "USER": os.getenv("DB_USER", "postgres"),
+        "PASSWORD": os.getenv("DB_PASS", "postgres"),
+        "HOST": "db",  
+        "PORT": 5432, 
     }
 }
 
@@ -149,12 +149,15 @@ REST_FRAMEWORK = {
     ]
 }
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
+    'http://3.138.124.217',
 ]
 
-# CORS_ALLOW_HEADERS = [
-#     "trn-api-key",
-#     "Content-Type",
-#     "Authorization",  # Add any other headers you need to allow here
-# ]
+CORS_ALLOW_HEADERS = [
+    "trn-api-key",
+    "Content-Type",
+    "Authorization",  # Add any other headers you need to allow here
+]
