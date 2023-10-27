@@ -23,7 +23,7 @@ async function basicFetch(url, payload) {
   }
   
   export async function login(context) {
-    const base_url = import.meta.env.VITE_BASE_URL
+    const base_url = `http://${import.meta.env.VITE_BASE_URL}`
     const endpoint = '/users/get-token/'
     const url = new URL(endpoint, base_url)
 
@@ -40,7 +40,7 @@ async function basicFetch(url, payload) {
   }
 
   export async function recipeSearch(queryParams, authToken) {
-    const base_url = import.meta.env.VITE_BASE_URL
+    const base_url = `http://${import.meta.env.VITE_BASE_URL}`
     const queryString = Object.keys(queryParams)
       .map((key) => {
         if (key === 'health' && Array.isArray(queryParams[key])) {
