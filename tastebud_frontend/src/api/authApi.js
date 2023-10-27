@@ -15,7 +15,7 @@ async function basicFetch(url, payload) {
       },
       body: JSON.stringify(context)
     }
-    const body = await basicFetch(`http://${base_url}/users/signup/`,payload)
+    const body = await basicFetch(`${base_url}users/signup/`,payload)
     return body
   }
   
@@ -29,7 +29,7 @@ async function basicFetch(url, payload) {
       },
       body: JSON.stringify(context)
     }
-    const body = await basicFetch(`http://${base_url}/users/get-token/`, payload)
+    const body = await basicFetch(`${base_url}users/get-token/`, payload)
     return body.token
   }
 
@@ -45,7 +45,7 @@ async function basicFetch(url, payload) {
       })
       .join('&');
   
-    const url = `http://${base_url}/api/v1/recipe_search/?${queryString}`;
+    const url = `${base_url}api/v1/recipe_search/?${queryString}`;
   
     const payload = {
       method: 'GET',
