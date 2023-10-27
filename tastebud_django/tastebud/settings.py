@@ -162,5 +162,5 @@ CORS_ALLOW_HEADERS = [
     "Authorization",  # Add any other headers you need to allow here
 ]
 
-USE_X_FORWARDED_HOST = True
-USE_X_FORWARDED_PORT = True
+# USE_X_FORWARDED_HOST = True
+# USE_X_FORWARDED_PORT = True
