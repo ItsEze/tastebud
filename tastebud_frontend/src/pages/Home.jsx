@@ -11,12 +11,11 @@ import Recipes from "../components/Recipes";
 import '../components/css/SearchContainer.css'
 
 
-export default function Home() {
+export default function Home({recipes, setRecipes}) {
 
     const sharedState = useContext(AuthContext)
     const { authToken } = sharedState
 
-    const [recipes, setRecipes] = useState(null)
     const [queryParams, setQueryParams] = useState({
         q: '',
         health: [],
@@ -38,12 +37,6 @@ export default function Home() {
                 </div>
             )}
             
-
-        {/* this Page will have a Search Bar at the top of the page, This search bar accepts a custom search parameter and has a search button at the right end.
-        Bottom of page will also have search button and a clear button.
-        4 Filters: health, cuisineType, mealType, dishType - all filters are pre loaded lists. 
-        You can select on multiple filters, these will be loaded into a "filter list" with a little x to delete them. */}
-        {/* <NavBar /> */}
         </>
     )
 }

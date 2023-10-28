@@ -4,6 +4,28 @@
     height: 10vh;
     background-color: #6D9B7C;
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     /* padding: 0.5rem; */
     /* margin-bottom: 2rem; */
+}
+
+.navLogo {
+    width: 15%;
+    /* background-color: black; */
+}
+
+.logout {
+    width: 5%;
+    height: 25%;
+    border: 2px solid #f1fcf4;
+    border-radius: 45px;
+}
+
+.searchButton {
+    height: 25%;
+    border-radius: 45px;
+    border: 2px solid #f1fcf4;
 }

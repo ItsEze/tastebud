@@ -13,6 +13,8 @@ import NavBar from "./components/NavBar";
 export default function App() {
   const [authToken, setAuthToken] = useState(null);
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const [recipes, setRecipes] = useState(null)
+
 
   const inputRef = useRef(null);
 
@@ -27,6 +29,7 @@ export default function App() {
     authToken,
     setAuthToken,
     handleToken,
+    setRecipes
   };
   
   const handleInputChange = (e) => {
@@ -49,15 +52,14 @@ useEffect(() => {
 
   return (
     <AuthContext.Provider value={sharedState}>
-      <NavBar />
       <Router>
+      <NavBar setRecipes={setRecipes}/>
         <Routes>
           <Route path='/' element={<Login handleToken={handleToken} handleInputChange={handleInputChange}/>}/>
           <Route path='/signup' element={<Signup handleInputChange={handleInputChange} formData={formData} />}/>
-          <Route path='/home' element={<Home />}/>
+          <Route path='/home' element={<Home recipes={recipes} setRecipes={setRecipes}/>}/>
           <Route path='/testing' element={<Testing />}/>
           <Route path='/colors' element={<Colors />}/>
-          <Route path="/navbar" element={<NavBar />}/>
         </Routes>
       </Router> 
     </AuthContext.Provider>
