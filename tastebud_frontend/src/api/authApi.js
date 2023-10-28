@@ -6,10 +6,10 @@ async function basicFetch(url, payload) {
   
   
 export async function signup(context) {
-  // const base_url = `http://${import.meta.env.VITE_BASE_URL}`
-  // const endpoint = '/users/signup/'
-  // const url = new URL(endpoint, base_url)
-  const url = 'http://127.0.0.1:8000/users/signup/'
+  const base_url = `http://${import.meta.env.VITE_BASE_URL}`
+  const endpoint = '/users/signup/'
+  const url = new URL(endpoint, base_url)
+  // const url = 'http://127.0.0.1:8000/users/signup/'
 
 
 
@@ -26,10 +26,10 @@ export async function signup(context) {
 }
 
 export async function login(context) {
-  // const base_url = `http://${import.meta.env.VITE_BASE_URL}`
-  // const endpoint = '/users/get-token/'
-  // const url = new URL(endpoint, base_url)
-  const url = 'http://127.0.0.1:8000/users/get-token/'
+  const base_url = `http://${import.meta.env.VITE_BASE_URL}`
+  const endpoint = '/users/get-token/'
+  const url = new URL(endpoint, base_url)
+  // const url = 'http://127.0.0.1:8000/users/get-token/'
 
   console.log(context)
   const payload = {
@@ -55,8 +55,8 @@ export async function recipeSearch(queryParams, authToken) {
     })
     .join('&');
 
-  // const url = `${base_url}/api/v1/recipe_search/?${queryString}`;
-  const url = `http://127.0.0.1:8000/api/v1/recipe_search/?${queryString}`;
+  const url = `${base_url}/api/v1/recipe_search/?${queryString}`;
+  // const url = `http://127.0.0.1:8000/api/v1/recipe_search/?${queryString}`;
 
   const payload = {
     method: 'GET',
