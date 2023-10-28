@@ -26,6 +26,7 @@ async function basicFetch(url, payload) {
     const base_url = `http://${import.meta.env.VITE_BASE_URL}`
     const endpoint = '/users/get-token/'
     const url = new URL(endpoint, base_url)
+    // const url = 'http://127.0.0.1:8000/users/get-token'
 
     console.log(context)
     const payload = {

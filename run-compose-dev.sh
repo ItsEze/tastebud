@@ -8,6 +8,8 @@ export DEBUG=True
 export POSTGRES_DB=tastebuddb
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=postgres
+export APPLICATION_ID=$1
+export APPLICATION_KEYS=$2
 
 docker-compose -f docker-compose.dev.yml up -d --build
 
