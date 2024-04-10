@@ -155,7 +155,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     'http://3.138.124.217',
-    'http://18.191.234.165/',
+    'http://18.191.234.165',
+    'http://18.191.165.61'
 ]
 
 CORS_ALLOW_HEADERS = [
