@@ -28,7 +28,7 @@ export default function Signup({handleInputChange}) {
   if (shouldRedirect) {
     return <Navigate to="/"/>
   } else {
-    return <Form formType={"Signup"} handleInputChange={handleInputChange} handleSubmit={handleSubmit} responseMsg={responseMsg}/>
+    return <Form formType="Signup" handleInputChange={handleInputChange} handleSubmit={handleSubmit} responseMsg={responseMsg}/>
   }
 
 }

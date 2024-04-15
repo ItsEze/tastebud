@@ -27,6 +27,6 @@ export default function Login({ handleInputChange, handleToken }) {
   if (shouldRedirect) {
     return <Navigate to="/home"/>
   } else {
-    return <Form key={'Login'} formType={"Login"} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} handleSubmit={handleSubmit} responseMsg={responseMsg}/>
+    return <Form key={'Login'} formType="Login" handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} handleSubmit={handleSubmit} responseMsg={responseMsg}/>
   }
 }
