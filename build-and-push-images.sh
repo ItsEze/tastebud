@@ -21,8 +21,8 @@ NEW_VERSION=$2
 # docker buildx build --platform linux/amd64  -t $DOCKERHUB_UNAME/tastebud-api:$NEW_VERSION -f tastebud_django/Dockerfile ./tastebud_django --push --no-cache
 # # docker push $DOCKERHUB_UNAME/tastebud-api:$NEW_VERSION
 
-docker build --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/tastebud_webserver:$NEW_VERSION -f webserver/Dockerfile . --no-cache
-docker push $DOCKERHUB_UNAME/tastebud_webserver:$NEW_VERSION
+docker build --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/tastebud-webserver:$NEW_VERSION -f webserver/Dockerfile . --no-cache
+docker push $DOCKERHUB_UNAME/tastebud-webserver:$NEW_VERSION
 
 # docker build -t VITE_BASE_URL=$BASE_URL $DOCKERHUB_UNAME/coin_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
 # docker push $DOCKERHUB_UNAME/coin_webserver-prod:$NEW_VERSION
